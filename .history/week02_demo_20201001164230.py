@@ -41,7 +41,7 @@ def update_statement(statement, initial_balance, interest_rate):
         balance = update_balance(month, balance)
         monthly_interest = calculate_interest(balance, interest_rate)
         balance += monthly_interest
-        statement[i].append([monthly_interest, balance])
+        statement[i].append(monthly_interest)
         i = i + 1
     
     # statement[-1].append(total_interest)

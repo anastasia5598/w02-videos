@@ -35,14 +35,12 @@ def update_statement(statement, initial_balance, interest_rate):
     '''
     balance = initial_balance
     monthly_interest = 0
-    i = 0
     
     for month in statement:
         balance = update_balance(month, balance)
         monthly_interest = calculate_interest(balance, interest_rate)
-        balance += monthly_interest
-        statement[i].append([monthly_interest, balance])
-        i = i + 1
+        balance = update_balance(month, monthly_interest)
+        statement[month].append(monthly_interest)
     
     # statement[-1].append(total_interest)
     # balance = balance + total_interest
